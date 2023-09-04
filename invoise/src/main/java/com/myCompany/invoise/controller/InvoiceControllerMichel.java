@@ -12,4 +12,13 @@ public class InvoiceControllerMichel implements InvoiceControllerInterface {
         invoice.setCustomerName(name);
         invoiceServiceInterface.createInvoice(invoice);
     }
+
+    //Getter and setter
+    public InvoiceServiceInterface getInvoiceServiceInterface() {
+        return invoiceServiceInterface;
+    }
+
+    public void setInvoiceServiceInterface(InvoiceServiceInterface invoiceServiceInterface) {
+        this.invoiceServiceInterface = invoiceServiceInterface;
+    }
 }

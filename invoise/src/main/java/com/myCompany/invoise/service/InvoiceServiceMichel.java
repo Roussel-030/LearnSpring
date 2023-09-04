@@ -11,4 +11,13 @@ public class InvoiceServiceMichel implements InvoiceServiceInterface {
         invoice.setNumber("INV_"+String.valueOf(++invoiceNumber));
         invoiceRepositoryMichel.create(invoice);
     }
+
+    //Getter and setter
+    public InvoiceRepositoryInterface getInvoiceRepositoryMichel() {
+        return invoiceRepositoryMichel;
+    }
+
+    public void setInvoiceRepositoryMichel(InvoiceRepositoryInterface invoiceRepositoryMichel) {
+        this.invoiceRepositoryMichel = invoiceRepositoryMichel;
+    }
 }
