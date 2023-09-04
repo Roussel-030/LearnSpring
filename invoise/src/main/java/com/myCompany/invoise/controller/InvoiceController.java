@@ -1,0 +1,18 @@
+package com.myCompany.invoise.controller;
+
+import com.myCompany.invoise.entity.Invoice;
+import com.myCompany.invoise.service.InvoiceService;
+
+import java.util.Scanner;
+
+public class InvoiceController {
+    public void createInvoiceUsingConsole() {
+        System.out.print( "What is the customer name :" );
+        Scanner sc = new Scanner(System.in);
+        String name = sc.nextLine();
+        Invoice invoice = new Invoice();
+        invoice.setCustomerName(name);
+        InvoiceService invoiceService = new InvoiceService();
+        invoiceService.createInvoice(invoice);
+    }
+}
