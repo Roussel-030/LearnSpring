@@ -2,10 +2,10 @@ package com.myCompany.invoise;
 
 import com.myCompany.invoise.controller.InvoiceController;
 import com.myCompany.invoise.controller.InvoiceControllerMichel;
+import com.myCompany.invoise.controller.InvoiceControllerShakeAll;
 import com.myCompany.invoise.repository.InvoiceRepository;
 import com.myCompany.invoise.repository.InvoiceRepositoryMichel;
 import com.myCompany.invoise.service.InvoiceService;
-import com.myCompany.invoise.service.InvoiceServiceMichel;
 
 import java.util.Scanner;
 
@@ -17,7 +17,7 @@ public class App
 {
     public static void main( String[] args )
     {
-        System.out.print("What configuration do you want? (1/2):");
+        System.out.print("What configuration do you want? (1,2 or 3):");
         Scanner sc = new Scanner(System.in);
         int configuration = sc.nextInt();
         if(configuration == 1) {
@@ -28,13 +28,24 @@ public class App
             invoiceService.setInvoiceRepository(invoiceRepository);
             invoiceController.createInvoice();
         }
-        else {
+        else if(configuration == 2) {
             InvoiceControllerMichel invoiceControllerMichel = new InvoiceControllerMichel();
-            InvoiceServiceMichel invoiceServiceMichel = new InvoiceServiceMichel();
-            invoiceControllerMichel.setInvoiceServiceInterface(invoiceServiceMichel);
+            InvoiceService invoiceService = new InvoiceService();
+            invoiceControllerMichel.setInvoiceServiceInterface(invoiceService);
             InvoiceRepositoryMichel invoiceRepositoryMichel = new InvoiceRepositoryMichel();
-            invoiceServiceMichel.setInvoiceRepositoryMichel(invoiceRepositoryMichel);
+            invoiceService.setInvoiceRepository(invoiceRepositoryMichel);
             invoiceControllerMichel.createInvoice();
+        }
+        else if(configuration == 3) {
+            InvoiceControllerShakeAll invoiceControllerShakeAll = new InvoiceControllerShakeAll();
+            InvoiceService invoiceService = new InvoiceService();
+            invoiceControllerShakeAll.setInvoiceServiceInterface(invoiceService);
+            InvoiceRepositoryMichel invoiceRepositoryMichel = new InvoiceRepositoryMichel();
+            invoiceService.setInvoiceRepository(invoiceRepositoryMichel);
+            invoiceControllerShakeAll.createInvoice();
+        }
+        else {
+            System.out.println("Please, choose a configuration between 1,2 or 3!");
         }
     }
 }
