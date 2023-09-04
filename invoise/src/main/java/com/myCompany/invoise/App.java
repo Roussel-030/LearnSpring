@@ -18,11 +18,11 @@ public class App
         int configuration = sc.nextInt();
         if(configuration == 1) {
             InvoiceController invoiceController = new InvoiceController();
-            invoiceController.createInvoiceUsingConsole();
+            invoiceController.createInvoice();
         }
         else {
             InvoiceControllerMichel invoiceControllerMichel = new InvoiceControllerMichel();
-            invoiceControllerMichel.createInvoiceUsingWebForm();
+            invoiceControllerMichel.createInvoice();
         }
     }
 }
