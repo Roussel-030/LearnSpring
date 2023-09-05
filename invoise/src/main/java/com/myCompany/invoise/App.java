@@ -1,11 +1,15 @@
 package com.myCompany.invoise;
 
 import com.myCompany.invoise.controller.ConsoleInvoiceController;
+import com.myCompany.invoise.controller.InvoiceControllerInterface;
 import com.myCompany.invoise.controller.WebInvoiceController;
 import com.myCompany.invoise.controller.ShowerInvoiceController;
+import com.myCompany.invoise.repository.InvoiceRepositoryInterface;
 import com.myCompany.invoise.repository.MemoryInvoiceRepository;
 import com.myCompany.invoise.repository.DatabaseInvoiceRepository;
+import com.myCompany.invoise.service.InvoiceServiceInterface;
 import com.myCompany.invoise.service.NumberInvoiceService;
+import com.myCompany.invoise.service.PrefixInvoiceService;
 
 import java.util.Scanner;
 
@@ -17,35 +21,47 @@ public class App
 {
     public static void main( String[] args )
     {
-        System.out.print("What configuration do you want? (1,2 or 3):");
         Scanner sc = new Scanner(System.in);
-        int configuration = sc.nextInt();
-        if(configuration == 1) {
-            ConsoleInvoiceController consoleInvoiceController = new ConsoleInvoiceController();
-            NumberInvoiceService numberInvoiceService = new NumberInvoiceService();
-            consoleInvoiceController.setInvoiceServiceInterface(numberInvoiceService);
-            MemoryInvoiceRepository memoryInvoiceRepository = new MemoryInvoiceRepository();
-            numberInvoiceService.setInvoiceRepository(memoryInvoiceRepository);
-            consoleInvoiceController.createInvoice();
+        InvoiceControllerInterface invoiceController = null;
+        InvoiceServiceInterface invoiceService = null;
+        InvoiceRepositoryInterface invoiceRepository = null;
+
+        System.out.print("What kind of controller do you want? (console, web, showerHead):");
+        String controller = sc.nextLine();
+        System.out.print("What kind of service do you want? (number or prefix):");
+        String service = sc.nextLine();
+        System.out.print("What kind of repository do you want? (memory or database):");
+        String repository = sc.nextLine();
+
+        switch (controller) {
+            case "console":
+                invoiceController = new ConsoleInvoiceController();
+                break;
+            case "web":
+                invoiceController = new WebInvoiceController();
+                break;
+            default:
+                invoiceController = new ShowerInvoiceController();
         }
-        else if(configuration == 2) {
-            WebInvoiceController webInvoiceController = new WebInvoiceController();
-            NumberInvoiceService numberInvoiceService = new NumberInvoiceService();
-            webInvoiceController.setInvoiceServiceInterface(numberInvoiceService);
-            DatabaseInvoiceRepository databaseInvoiceRepository = new DatabaseInvoiceRepository();
-            numberInvoiceService.setInvoiceRepository(databaseInvoiceRepository);
-            webInvoiceController.createInvoice();
+
+        switch (service) {
+            case "number":
+                invoiceService = new NumberInvoiceService();
+                break;
+            default:
+                invoiceService = new PrefixInvoiceService();
         }
-        else if(configuration == 3) {
-            ShowerInvoiceController showerInvoiceController = new ShowerInvoiceController();
-            NumberInvoiceService numberInvoiceService = new NumberInvoiceService();
-            showerInvoiceController.setInvoiceServiceInterface(numberInvoiceService);
-            DatabaseInvoiceRepository databaseInvoiceRepository = new DatabaseInvoiceRepository();
-            numberInvoiceService.setInvoiceRepository(databaseInvoiceRepository);
-            showerInvoiceController.createInvoice();
+
+        switch (repository) {
+            case "memory":
+                invoiceRepository = new MemoryInvoiceRepository();
+                break;
+            default:
+                invoiceRepository = new DatabaseInvoiceRepository();
         }
-        else {
-            System.out.println("Please, choose a configuration between 1,2 or 3!");
-        }
+        invoiceController.setInvoiceServiceInterface(invoiceService);
+        invoiceService.setInvoiceRepository(invoiceRepository);
+        invoiceController.createInvoice();
+
     }
 }
