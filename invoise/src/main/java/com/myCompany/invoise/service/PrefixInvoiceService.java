@@ -5,19 +5,19 @@ import com.myCompany.invoise.repository.InvoiceRepositoryInterface;
 
 public class PrefixInvoiceService implements InvoiceServiceInterface {
     private static long invoiceNumber = 112L;
-    private InvoiceRepositoryInterface invoiceRepositoryMichel;
+    private InvoiceRepositoryInterface invoiceRepository;
 
     public void createInvoice(Invoice invoice) {
         invoice.setNumber("INV_"+String.valueOf(++invoiceNumber));
-        invoiceRepositoryMichel.create(invoice);
+        invoiceRepository.create(invoice);
     }
 
     //Getter and setter
     public InvoiceRepositoryInterface getInvoiceRepositoryMichel() {
-        return invoiceRepositoryMichel;
+        return invoiceRepository;
     }
 
     public void setInvoiceRepository(InvoiceRepositoryInterface invoiceRepositoryMichel) {
-        this.invoiceRepositoryMichel = invoiceRepositoryMichel;
+        this.invoiceRepository = invoiceRepositoryMichel;
     }
 }

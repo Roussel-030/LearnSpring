@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="invoiceService" class="com.myCompany.invoise.service.PrefixInvoiceService">
+        <property name="invoiceRepository" ref="invoiceRepository"/>
+    </bean>
+
+    <bean class="com.myCompany.invoise.controller.WebInvoiceController">
+        <property name="invoiceServiceInterface" ref="invoiceService"/>
+    </bean>
+
+    <bean id="invoiceRepository" class="com.myCompany.invoise.repository.DatabaseInvoiceRepository"/>
+
+
+    
+
+</beans>
