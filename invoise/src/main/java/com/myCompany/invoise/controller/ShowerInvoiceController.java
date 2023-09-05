@@ -3,7 +3,7 @@ package com.myCompany.invoise.controller;
 import com.myCompany.invoise.entity.Invoice;
 import com.myCompany.invoise.service.InvoiceServiceInterface;
 
-public class InvoiceControllerShakeAll implements InvoiceControllerInterface{
+public class ShowerInvoiceController implements InvoiceControllerInterface{
     private InvoiceServiceInterface invoiceServiceInterface;
 
     @Override

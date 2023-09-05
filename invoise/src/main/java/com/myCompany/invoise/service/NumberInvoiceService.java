@@ -3,7 +3,7 @@ package com.myCompany.invoise.service;
 import com.myCompany.invoise.entity.Invoice;
 import com.myCompany.invoise.repository.InvoiceRepositoryInterface;
 
-public class InvoiceService implements InvoiceServiceInterface {
+public class NumberInvoiceService implements InvoiceServiceInterface {
     private static long invoiceNumber = 0L;
     private InvoiceRepositoryInterface invoiceRepository;
 

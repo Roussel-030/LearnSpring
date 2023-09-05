@@ -1,11 +1,11 @@
 package com.myCompany.invoise;
 
-import com.myCompany.invoise.controller.InvoiceController;
-import com.myCompany.invoise.controller.InvoiceControllerMichel;
-import com.myCompany.invoise.controller.InvoiceControllerShakeAll;
-import com.myCompany.invoise.repository.InvoiceRepository;
-import com.myCompany.invoise.repository.InvoiceRepositoryMichel;
-import com.myCompany.invoise.service.InvoiceService;
+import com.myCompany.invoise.controller.ConsoleInvoiceController;
+import com.myCompany.invoise.controller.WebInvoiceController;
+import com.myCompany.invoise.controller.ShowerInvoiceController;
+import com.myCompany.invoise.repository.MemoryInvoiceRepository;
+import com.myCompany.invoise.repository.DatabaseInvoiceRepository;
+import com.myCompany.invoise.service.NumberInvoiceService;
 
 import java.util.Scanner;
 
@@ -21,28 +21,28 @@ public class App
         Scanner sc = new Scanner(System.in);
         int configuration = sc.nextInt();
         if(configuration == 1) {
-            InvoiceController invoiceController = new InvoiceController();
-            InvoiceService invoiceService = new InvoiceService();
-            invoiceController.setInvoiceServiceInterface(invoiceService);
-            InvoiceRepository invoiceRepository = new InvoiceRepository();
-            invoiceService.setInvoiceRepository(invoiceRepository);
-            invoiceController.createInvoice();
+            ConsoleInvoiceController consoleInvoiceController = new ConsoleInvoiceController();
+            NumberInvoiceService numberInvoiceService = new NumberInvoiceService();
+            consoleInvoiceController.setInvoiceServiceInterface(numberInvoiceService);
+            MemoryInvoiceRepository memoryInvoiceRepository = new MemoryInvoiceRepository();
+            numberInvoiceService.setInvoiceRepository(memoryInvoiceRepository);
+            consoleInvoiceController.createInvoice();
         }
         else if(configuration == 2) {
-            InvoiceControllerMichel invoiceControllerMichel = new InvoiceControllerMichel();
-            InvoiceService invoiceService = new InvoiceService();
-            invoiceControllerMichel.setInvoiceServiceInterface(invoiceService);
-            InvoiceRepositoryMichel invoiceRepositoryMichel = new InvoiceRepositoryMichel();
-            invoiceService.setInvoiceRepository(invoiceRepositoryMichel);
-            invoiceControllerMichel.createInvoice();
+            WebInvoiceController webInvoiceController = new WebInvoiceController();
+            NumberInvoiceService numberInvoiceService = new NumberInvoiceService();
+            webInvoiceController.setInvoiceServiceInterface(numberInvoiceService);
+            DatabaseInvoiceRepository databaseInvoiceRepository = new DatabaseInvoiceRepository();
+            numberInvoiceService.setInvoiceRepository(databaseInvoiceRepository);
+            webInvoiceController.createInvoice();
         }
         else if(configuration == 3) {
-            InvoiceControllerShakeAll invoiceControllerShakeAll = new InvoiceControllerShakeAll();
-            InvoiceService invoiceService = new InvoiceService();
-            invoiceControllerShakeAll.setInvoiceServiceInterface(invoiceService);
-            InvoiceRepositoryMichel invoiceRepositoryMichel = new InvoiceRepositoryMichel();
-            invoiceService.setInvoiceRepository(invoiceRepositoryMichel);
-            invoiceControllerShakeAll.createInvoice();
+            ShowerInvoiceController showerInvoiceController = new ShowerInvoiceController();
+            NumberInvoiceService numberInvoiceService = new NumberInvoiceService();
+            showerInvoiceController.setInvoiceServiceInterface(numberInvoiceService);
+            DatabaseInvoiceRepository databaseInvoiceRepository = new DatabaseInvoiceRepository();
+            numberInvoiceService.setInvoiceRepository(databaseInvoiceRepository);
+            showerInvoiceController.createInvoice();
         }
         else {
             System.out.println("Please, choose a configuration between 1,2 or 3!");
