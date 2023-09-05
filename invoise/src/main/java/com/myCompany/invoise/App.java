@@ -26,39 +26,22 @@ public class App
         InvoiceServiceInterface invoiceService = null;
         InvoiceRepositoryInterface invoiceRepository = null;
 
-        System.out.print("What kind of controller do you want? (console, web, showerHead):");
+        System.out.print("What kind of controller class do you want? :");
         String controller = sc.nextLine();
-        System.out.print("What kind of service do you want? (number or prefix):");
+        System.out.print("What kind of service class do you want? :");
         String service = sc.nextLine();
-        System.out.print("What kind of repository do you want? (memory or database):");
+        System.out.print("What kind of repository class do you want? :");
         String repository = sc.nextLine();
 
-        switch (controller) {
-            case "console":
-                invoiceController = new ConsoleInvoiceController();
-                break;
-            case "web":
-                invoiceController = new WebInvoiceController();
-                break;
-            default:
-                invoiceController = new ShowerInvoiceController();
+        try {
+            invoiceController = (InvoiceControllerInterface) Class.forName(controller).getDeclaredConstructor().newInstance();
+            invoiceService = (InvoiceServiceInterface) Class.forName(service).getDeclaredConstructor().newInstance();
+            invoiceRepository = (InvoiceRepositoryInterface) Class.forName(repository).getDeclaredConstructor().newInstance();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
         }
 
-        switch (service) {
-            case "number":
-                invoiceService = new NumberInvoiceService();
-                break;
-            default:
-                invoiceService = new PrefixInvoiceService();
-        }
-
-        switch (repository) {
-            case "memory":
-                invoiceRepository = new MemoryInvoiceRepository();
-                break;
-            default:
-                invoiceRepository = new DatabaseInvoiceRepository();
-        }
         invoiceController.setInvoiceServiceInterface(invoiceService);
         invoiceService.setInvoiceRepository(invoiceRepository);
         invoiceController.createInvoice();
