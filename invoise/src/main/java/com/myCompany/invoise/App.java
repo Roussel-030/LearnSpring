@@ -1,15 +1,8 @@
 package com.myCompany.invoise;
 
-import com.myCompany.invoise.controller.ConsoleInvoiceController;
 import com.myCompany.invoise.controller.InvoiceControllerInterface;
-import com.myCompany.invoise.controller.WebInvoiceController;
-import com.myCompany.invoise.controller.ShowerInvoiceController;
 import com.myCompany.invoise.repository.InvoiceRepositoryInterface;
-import com.myCompany.invoise.repository.MemoryInvoiceRepository;
-import com.myCompany.invoise.repository.DatabaseInvoiceRepository;
 import com.myCompany.invoise.service.InvoiceServiceInterface;
-import com.myCompany.invoise.service.NumberInvoiceService;
-import com.myCompany.invoise.service.PrefixInvoiceService;
 
 import java.util.Scanner;
 
