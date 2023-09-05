@@ -4,11 +4,13 @@ import com.myCompany.invoise.entity.Invoice;
 import com.myCompany.invoise.repository.InvoiceRepositoryInterface;
 
 public class PrefixInvoiceService implements InvoiceServiceInterface {
-    private static long invoiceNumber = 112L;
+
+    private long invoiceNumber;
+    private String prefix;
     private InvoiceRepositoryInterface invoiceRepository;
 
     public void createInvoice(Invoice invoice) {
-        invoice.setNumber("INV_"+String.valueOf(++invoiceNumber));
+        invoice.setNumber(prefix+String.valueOf(++invoiceNumber));
         invoiceRepository.create(invoice);
     }
 
@@ -19,5 +21,21 @@ public class PrefixInvoiceService implements InvoiceServiceInterface {
 
     public void setInvoiceRepository(InvoiceRepositoryInterface invoiceRepositoryMichel) {
         this.invoiceRepository = invoiceRepositoryMichel;
+    }
+
+    public long getInvoiceNumber() {
+        return invoiceNumber;
+    }
+
+    public void setInvoiceNumber(long invoiceNumber) {
+        this.invoiceNumber = invoiceNumber;
+    }
+
+    public String getPrefix() {
+        return prefix;
+    }
+
+    public void setPrefix(String prefix) {
+        this.prefix = prefix;
     }
 }
