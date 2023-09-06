@@ -2,8 +2,11 @@ package com.myCompany.invoise.controller;
 
 import com.myCompany.invoise.entity.Invoice;
 import com.myCompany.invoise.service.InvoiceServiceInterface;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class WebInvoiceController implements InvoiceControllerInterface {
+
+    @Autowired
     private InvoiceServiceInterface invoiceService;
 
     public void createInvoice() {
