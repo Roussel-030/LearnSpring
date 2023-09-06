@@ -4,21 +4,21 @@ import com.myCompany.invoise.entity.Invoice;
 import com.myCompany.invoise.service.InvoiceServiceInterface;
 
 public class WebInvoiceController implements InvoiceControllerInterface {
-    private InvoiceServiceInterface invoiceServiceInterface;
+    private InvoiceServiceInterface invoiceService;
 
     public void createInvoice() {
         String name = "Space x";
         Invoice invoice = new Invoice();
         invoice.setCustomerName(name);
-        invoiceServiceInterface.createInvoice(invoice);
+        invoiceService.createInvoice(invoice);
     }
 
     //Getter and setter
-    public InvoiceServiceInterface getInvoiceServiceInterface() {
-        return invoiceServiceInterface;
+    public InvoiceServiceInterface getInvoiceService() {
+        return invoiceService;
     }
 
-    public void setInvoiceServiceInterface(InvoiceServiceInterface invoiceServiceInterface) {
-        this.invoiceServiceInterface = invoiceServiceInterface;
+    public void setInvoiceService(InvoiceServiceInterface invoiceService) {
+        this.invoiceService = invoiceService;
     }
 }

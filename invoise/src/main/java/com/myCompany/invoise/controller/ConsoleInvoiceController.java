@@ -22,7 +22,7 @@ public class ConsoleInvoiceController implements InvoiceControllerInterface {
         return invoiceServiceInterface;
     }
 
-    public void setInvoiceServiceInterface(InvoiceServiceInterface invoiceServiceInterface) {
-        this.invoiceServiceInterface = invoiceServiceInterface;
+    public void setInvoiceService(InvoiceServiceInterface invoiceService) {
+        this.invoiceServiceInterface = invoiceService;
     }
 }

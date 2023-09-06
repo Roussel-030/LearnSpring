@@ -4,19 +4,13 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
     http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="invoiceService" class="com.myCompany.invoise.service.PrefixInvoiceService">
-        <property name="invoiceRepository" ref="invoiceRepository"/>
+    <bean id="invoiceService" class="com.myCompany.invoise.service.PrefixInvoiceService" autowire="byName">
         <property name="invoiceNumber" value="113"/>
         <property name="prefix" value="INV_"/>
     </bean>
 
-    <bean class="com.myCompany.invoise.controller.WebInvoiceController">
-        <property name="invoiceServiceInterface" ref="invoiceService"/>
-    </bean>
+    <bean class="com.myCompany.invoise.controller.WebInvoiceController" autowire="byName"/>
 
     <bean id="invoiceRepository" class="com.myCompany.invoise.repository.DatabaseInvoiceRepository"/>
-
-
-    
 
 </beans>
