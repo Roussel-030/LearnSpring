@@ -1,18 +1,17 @@
 package com.myCompany.invoise;
 
 import com.myCompany.invoise.controller.InvoiceControllerInterface;
+import com.myCompany.invoise.service.InvoiceServiceInterface;
+import com.myCompany.invoise.service.prefix.PrefixInvoiceService;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.*;
 
 /**
  * Hello world!
  *
  */
 @Configuration
-@ComponentScan(basePackages = {"com.myCompany.invoise.controller.web","com.myCompany.invoise.service.prefix","com.myCompany.invoise.repository.database"})
+@ComponentScan(basePackages = {"com.myCompany.invoise.controller.web"/*,"com.myCompany.invoise.service.prefix"*/,"com.myCompany.invoise.repository.database"})
 @PropertySource("classpath:application.properties")
 public class App 
 {
@@ -21,5 +20,10 @@ public class App
         ApplicationContext context = new AnnotationConfigApplicationContext(App.class);
         InvoiceControllerInterface invoiceControllerInterface = context.getBean(InvoiceControllerInterface.class);
         invoiceControllerInterface.createInvoice();
+    }
+
+    @Bean
+    public InvoiceServiceInterface configureInvoiceService() {
+        return new PrefixInvoiceService();
     }
 }
