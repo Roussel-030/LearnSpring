@@ -1,10 +1,13 @@
-package com.myCompany.invoise.service;
+package com.myCompany.invoise.service.prefix;
 
 import com.myCompany.invoise.entity.Invoice;
 import com.myCompany.invoise.repository.InvoiceRepositoryInterface;
+import com.myCompany.invoise.service.InvoiceServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
 
+@Service
 public class PrefixInvoiceService implements InvoiceServiceInterface {
 
     @Value("${invoice.number}")

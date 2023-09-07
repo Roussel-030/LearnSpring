@@ -1,10 +1,13 @@
-package com.myCompany.invoise.controller;
+package com.myCompany.invoise.controller.console;
 
+import com.myCompany.invoise.controller.InvoiceControllerInterface;
 import com.myCompany.invoise.entity.Invoice;
 import com.myCompany.invoise.service.InvoiceServiceInterface;
+import org.springframework.stereotype.Controller;
 
 import java.util.Scanner;
 
+@Controller
 public class ConsoleInvoiceController implements InvoiceControllerInterface {
     private InvoiceServiceInterface invoiceServiceInterface;
 

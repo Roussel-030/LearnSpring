@@ -1,9 +1,12 @@
-package com.myCompany.invoise.controller;
+package com.myCompany.invoise.controller.shower;
 
+import com.myCompany.invoise.controller.InvoiceControllerInterface;
 import com.myCompany.invoise.entity.Invoice;
 import com.myCompany.invoise.service.InvoiceServiceInterface;
+import org.springframework.stereotype.Controller;
 
-public class ShowerInvoiceController implements InvoiceControllerInterface{
+@Controller
+public class ShowerInvoiceController implements InvoiceControllerInterface {
     private InvoiceServiceInterface invoiceServiceInterface;
 
     @Override
