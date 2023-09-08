@@ -5,7 +5,7 @@ import com.myCompany.invoise.entity.Invoice;
 import com.myCompany.invoise.service.InvoiceServiceInterface;
 import org.springframework.stereotype.Controller;
 
-@Controller
+//@Controller
 public class ShowerInvoiceController implements InvoiceControllerInterface {
     private InvoiceServiceInterface invoiceServiceInterface;
 
