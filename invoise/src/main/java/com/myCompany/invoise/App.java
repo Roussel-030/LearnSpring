@@ -12,7 +12,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  *
  */
 @Configuration
-@ComponentScan(basePackages = {"com.myCompany.invoise.controller.web"/*,"com.myCompany.invoise.service.prefix"*/,"com.myCompany.invoise.repository.database"})
+@ComponentScan
 @PropertySource("classpath:application.properties")
 public class App 
 {
@@ -22,10 +22,5 @@ public class App
         ApplicationContext context = new AnnotationConfigApplicationContext(App.class);
         InvoiceControllerInterface invoiceControllerInterface = context.getBean(InvoiceControllerInterface.class);
         invoiceControllerInterface.createInvoice();
-    }
-
-    @Bean
-    public InvoiceServiceInterface configureInvoiceService() {
-        return new PrefixInvoiceService();
     }
 }
