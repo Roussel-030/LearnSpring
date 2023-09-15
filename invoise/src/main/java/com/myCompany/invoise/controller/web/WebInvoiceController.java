@@ -23,7 +23,7 @@ public class WebInvoiceController implements InvoiceControllerInterface {
     @RequestMapping("/invoice-home")
     public String displayHome() {
         System.out.println("Invocation method display home: Success!");
-        return "";
+        return "index";
     }
 
     //Getter and setter
