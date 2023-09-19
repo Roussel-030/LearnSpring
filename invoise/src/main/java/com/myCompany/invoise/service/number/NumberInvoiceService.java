@@ -5,6 +5,8 @@ import com.myCompany.invoise.repository.InvoiceRepositoryInterface;
 import com.myCompany.invoise.service.InvoiceServiceInterface;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 //@Service
 public class NumberInvoiceService implements InvoiceServiceInterface {
     private static long invoiceNumber = 0L;
@@ -22,5 +24,10 @@ public class NumberInvoiceService implements InvoiceServiceInterface {
 
     public void setInvoiceRepository(InvoiceRepositoryInterface invoiceRepository) {
         this.invoiceRepository = invoiceRepository;
+    }
+
+    @Override
+    public List<Invoice> getInvoiceList() {
+        return invoiceRepository.list();
     }
 }

@@ -5,7 +5,10 @@ import com.myCompany.invoise.entity.Invoice;
 import com.myCompany.invoise.service.InvoiceServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.List;
 
 @Controller
 public class WebInvoiceController implements InvoiceControllerInterface {
@@ -21,9 +24,10 @@ public class WebInvoiceController implements InvoiceControllerInterface {
     }
 
     @RequestMapping("/invoice-home")
-    public String displayHome() {
+    public @ModelAttribute("invoices") List<Invoice> displayHome() {
         System.out.println("Invocation method display home: Success!");
-        return "index";
+        List<Invoice> invoices = invoiceService.getInvoiceList();
+        return invoices;
     }
 
     //Getter and setter
