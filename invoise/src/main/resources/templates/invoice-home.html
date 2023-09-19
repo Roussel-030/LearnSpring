@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Invoice management</title>
+    <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+<style>
+    table {
+        border-collapse: collapse;
+    }
+    th {
+        background-color: #f2f2f2;
+        font-weight: bold;
+        text-align: left;
+    }
+    td, th {
+        border: 1px solid black;
+        padding: 8px;
+    }
+</style>
+<main>
+   <section>
+       <h1>Welcome in my web pages for management invoice</h1>
+       <h3>Action than you can use :</h3>
+   </section>
+    <nav>
+        <ul>
+            <li><a href="">Add invoice</a></li>
+        </ul>
+    </nav>
+    <section>
+        <table>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+            </tr>
+            <tr th:each="invoice: ${invoices}">
+                <td th:text="${invoice.number}"></td>
+                <td th:text="${invoice.customerName}"></td>
+            </tr>
+        </table>
+    </section>
+</main>
+</body>
+</html>
