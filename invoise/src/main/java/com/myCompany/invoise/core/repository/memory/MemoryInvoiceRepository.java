@@ -19,4 +19,9 @@ public class MemoryInvoiceRepository implements InvoiceRepositoryInterface {
     public List<Invoice> list() {
         return listInvoice;
     }
+
+    @Override
+    public Invoice getById(String number) {
+        return null;
+    }
 }

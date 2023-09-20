@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Invoice details</title>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<main>
+    <section style="text-align: center; border: 1px solid black">
+        <section style="text-align: center">
+            <p>
+                Number: <span th:text="${invoice.number}"/>
+            </p>
+            <p>
+                Customer name: <span th:text="${invoice.customerName}"/>
+            </p>
+            <p>
+                Order number: <span th:text="${invoice.orderNumber}"/>
+            </p>
+        </section>
+    </section>
+</main>
+</body>
+</html>
