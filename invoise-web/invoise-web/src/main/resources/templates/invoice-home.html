@@ -3,35 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <title>Invoice management</title>
-    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
+
 <style>
-    table {
+    .table-custom {
+        font-size: 16px;
         border-collapse: collapse;
     }
-    th {
-        background-color: #f2f2f2;
-        font-weight: bold;
+    .table-custom th, .table-custom td {
+        border: 1px solid #ddd;
+        padding: 8px;
         text-align: left;
     }
-    td, th {
-        border: 1px solid black;
-        padding: 8px;
+    .table-custom th {
+        background-color: #f2f2f2;
     }
 </style>
+
+
 <main>
-   <section>
+    <section style="text-align: center">
        <h1>Welcome in my web pages for management invoice</h1>
        <h3>Action than you can use :</h3>
-   </section>
-    <nav>
-        <ul>
-            <li><a href="">Add invoice</a></li>
-        </ul>
-    </nav>
+    </section>
     <section>
-        <table>
+        <button>Add invoice</button>
+    </section>
+<!--    <nav>-->
+<!--        <ul>-->
+<!--            <li><a href=""><button>Add invoice</button></a></li>-->
+<!--        </ul>-->
+<!--    </nav>-->
+     <section style="margin-top: 5px;">
+        <table class="table-custom">
             <tr>
                 <th>Id</th>
                 <th>Name</th>
@@ -41,7 +47,7 @@
                 <td th:text="${invoice.customerName}"></td>
             </tr>
         </table>
-    </section>
+     </section>
 </main>
 </body>
 </html>

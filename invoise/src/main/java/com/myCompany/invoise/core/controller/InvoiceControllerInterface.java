@@ -1,6 +1,6 @@
-package com.myCompany.invoise.controller;
+package com.myCompany.invoise.core.controller;
 
-import com.myCompany.invoise.service.InvoiceServiceInterface;
+import com.myCompany.invoise.core.service.InvoiceServiceInterface;
 
 public interface InvoiceControllerInterface {
     void createInvoice();

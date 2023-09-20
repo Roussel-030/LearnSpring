@@ -1,4 +1,4 @@
-package com.myCompany.invoise.entity;
+package com.myCompany.invoise.core.entity;
 
 public class Invoice {
     private String number;

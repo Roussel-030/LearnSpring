@@ -1,9 +1,8 @@
-package com.myCompany.invoise.service.number;
+package com.myCompany.invoise.core.service.number;
 
-import com.myCompany.invoise.entity.Invoice;
-import com.myCompany.invoise.repository.InvoiceRepositoryInterface;
-import com.myCompany.invoise.service.InvoiceServiceInterface;
-import org.springframework.stereotype.Service;
+import com.myCompany.invoise.core.entity.Invoice;
+import com.myCompany.invoise.core.repository.InvoiceRepositoryInterface;
+import com.myCompany.invoise.core.service.InvoiceServiceInterface;
 
 import java.util.List;
 

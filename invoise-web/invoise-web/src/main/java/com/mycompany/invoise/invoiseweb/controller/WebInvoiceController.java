@@ -1,8 +1,8 @@
-package com.myCompany.invoise.controller.web;
+package com.mycompany.invoise.invoiseweb.controller;
 
-import com.myCompany.invoise.controller.InvoiceControllerInterface;
-import com.myCompany.invoise.entity.Invoice;
-import com.myCompany.invoise.service.InvoiceServiceInterface;
+import com.myCompany.invoise.core.controller.InvoiceControllerInterface;
+import com.myCompany.invoise.core.entity.Invoice;
+import com.myCompany.invoise.core.service.InvoiceServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;

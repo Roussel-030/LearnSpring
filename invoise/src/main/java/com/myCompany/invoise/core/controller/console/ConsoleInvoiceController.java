@@ -1,9 +1,8 @@
-package com.myCompany.invoise.controller.console;
+package com.myCompany.invoise.core.controller.console;
 
-import com.myCompany.invoise.controller.InvoiceControllerInterface;
-import com.myCompany.invoise.entity.Invoice;
-import com.myCompany.invoise.service.InvoiceServiceInterface;
-import org.springframework.stereotype.Controller;
+import com.myCompany.invoise.core.controller.InvoiceControllerInterface;
+import com.myCompany.invoise.core.entity.Invoice;
+import com.myCompany.invoise.core.service.InvoiceServiceInterface;
 
 import java.util.Scanner;
 
