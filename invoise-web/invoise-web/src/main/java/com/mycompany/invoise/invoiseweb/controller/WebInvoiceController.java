@@ -5,6 +5,7 @@ import com.myCompany.invoise.core.entity.Invoice;
 import com.myCompany.invoise.core.service.InvoiceServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,19 +28,17 @@ public class WebInvoiceController implements InvoiceControllerInterface {
     }
 
     @RequestMapping("/home")
-    public ModelAndView displayHome() {
+    public String displayHome(Model model) {
         System.out.println("Invocation method display home: Success!");
-        ModelAndView mv = new ModelAndView("invoice-home");
-        mv.addObject("invoices",invoiceService.getInvoiceList());
-        return mv;
+        model.addAttribute("invoices",invoiceService.getInvoiceList());
+        return "invoice-home";
     }
 
     @RequestMapping("/{id}")
-    public ModelAndView displayInvoice(@PathVariable("id") String number) {
+    public String displayInvoice(@PathVariable("id") String number, Model model) {
         System.out.println("Invocation method display invoice: Success!");
-        ModelAndView mv = new ModelAndView("invoice-details");
-        mv.addObject("invoice",invoiceService.getInvoiceByNumber(number));
-        return mv;
+        model.addAttribute("invoice",invoiceService.getInvoiceByNumber(number));
+        return "invoice-details";
     }
 
     //Getter and setter
