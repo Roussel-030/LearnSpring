@@ -10,9 +10,17 @@
 <main>
     <section>
         <form th:action="@{/invoice}" method="POST" th:object="${invoiceForm}">
-            <input type="text" placeholder="Customer name" th:field="*{customerName}"/>
-            <input type="text" placeholder="Order number" th:field="*{orderNumber}"/>
-            <input type="submit" value="Ok"/>
+            <div>
+                <div>
+                    <input type="text" placeholder="Customer name" th:field="*{customerName}"/>
+                    <span th:if="${#fields.hasErrors('customerName')}" th:errors="*{customerName}"></span>
+                </div>
+                <div style="margin-top: 5px;">
+                    <input type="text" placeholder="Order number" th:field="*{orderNumber}"/>
+                    <span th:if="${#fields.hasErrors('orderNumber')}" th:errors="*{orderNumber}"></span>
+                </div>
+                <div style="margin-top: 5px;">  <input type="submit" value="Ok"/> </div>
+            </div>
         </form>
     </section>
 </main>

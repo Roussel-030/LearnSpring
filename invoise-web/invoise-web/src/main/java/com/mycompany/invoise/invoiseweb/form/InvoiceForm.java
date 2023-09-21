@@ -5,9 +5,9 @@ import javax.validation.constraints.Size;
 
 public class InvoiceForm {
     private String number;
-    @NotBlank
+    @NotBlank(message = "Name of customer is necessary")
     private String customerName;
-    @Size(min=10,max=12)
+    @Size(min=10,max=12,message = "The order number does not have the correct length")
     private String orderNumber;
 
     //Getters and setters
