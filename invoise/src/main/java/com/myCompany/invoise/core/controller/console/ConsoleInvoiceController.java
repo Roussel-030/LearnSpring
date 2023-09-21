@@ -10,13 +10,14 @@ import java.util.Scanner;
 public class ConsoleInvoiceController implements InvoiceControllerInterface {
     private InvoiceServiceInterface invoiceServiceInterface;
 
-    public void createInvoice() {
+    public String createInvoice(Invoice invoice) {
         System.out.print( "What is the customer name :" );
         Scanner sc = new Scanner(System.in);
         String name = sc.nextLine();
-        Invoice invoice = new Invoice();
+        invoice = new Invoice();
         invoice.setCustomerName(name);
         invoiceServiceInterface.createInvoice(invoice);
+        return null;
     }
 
     //Getter an setter

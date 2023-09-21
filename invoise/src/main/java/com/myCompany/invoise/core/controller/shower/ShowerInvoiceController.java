@@ -9,11 +9,12 @@ public class ShowerInvoiceController implements InvoiceControllerInterface {
     private InvoiceServiceInterface invoiceServiceInterface;
 
     @Override
-    public void createInvoice() {
+    public String createInvoice(Invoice invoice) {
         System.out.println("Using a scanner");
-        Invoice invoice = new Invoice();
+        invoice = new Invoice();
         invoice.setCustomerName("John English");
         invoiceServiceInterface.createInvoice(invoice);
+        return null;
     }
 
     //Getter an setter
