@@ -9,7 +9,7 @@
 
 <main>
     <section>
-        <form th:action="@{/invoice}" method="POST" th:object="${invoice}">
+        <form th:action="@{/invoice}" method="POST" th:object="${invoiceForm}">
             <input type="text" placeholder="Customer name" th:field="*{customerName}"/>
             <input type="text" placeholder="Order number" th:field="*{orderNumber}"/>
             <input type="submit" value="Ok"/>
