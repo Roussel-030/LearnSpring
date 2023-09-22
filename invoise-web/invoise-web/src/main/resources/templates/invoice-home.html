@@ -3,48 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <title>Invoice management</title>
-    <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
 </head>
 <body>
+    <main>
+        <section style="text-align: center">
+           <h1>Welcome in my web pages for management invoice</h1>
+           <h3>Action than you can use :</h3>
+        </section>
+        <section>
 
-<style>
-    .table-custom {
-        font-size: 16px;
-        border-collapse: collapse;
-    }
-    .table-custom th, .table-custom td {
-        border: 1px solid #ddd;
-        padding: 8px;
-        text-align: left;
-    }
-    .table-custom th {
-        background-color: #f2f2f2;
-    }
-</style>
-
-
-<main>
-    <section style="text-align: center">
-       <h1>Welcome in my web pages for management invoice</h1>
-       <h3>Action than you can use :</h3>
-    </section>
-    <section>
-       <button> <a th:href="@{/invoice/create-form}" style="color: black; text-decoration: none">Add invoice</a> </button>
-    </section>
-     <section style="margin-top: 5px;">
-        <table class="table-custom">
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-            </tr>
-            <tr th:each="invoice: ${invoices}">
-                <td>
-                    <a th:href="${invoice.number}" th:text="${invoice.number}"/>
-                </td>
-                <td th:text="${invoice.customerName}"></td>
-            </tr>
-        </table>
-     </section>
-</main>
+        </section>
+        <div style="margin-top: 5px; display: flex; justify-content: space-around">
+            <section>
+                <button> <a th:href="@{/invoice/create-form}" style="color: black; text-decoration: none">Add invoice</a> </button>
+                <article id="invoice-list" style="margin-top: 9px;"></article>
+<!--                <table class="table-custom">-->
+<!--                    <tr>-->
+<!--                        <th>Id</th>-->
+<!--                        <th>Name</th>-->
+<!--                    </tr>-->
+<!--                    <tr th:each="invoice: ${invoices}">-->
+<!--                        <td>-->
+<!--                            <a th:href="${invoice.number}" th:text="${invoice.number}"/>-->
+<!--                        </td>-->
+<!--                        <td th:text="${invoice.customerName}"></td>-->
+<!--                    </tr>-->
+<!--                </table>-->
+            </section>
+            <section>
+                <article id="invoice-detail"></article>
+            </section>
+        </div>
+    </main>
+<script th:src="@{/js/script.js}"></script>
 </body>
 </html>

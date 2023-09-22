@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Invoice create</title>
-    <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
 </head>
 <body>
 
 <main>
     <section>
-        <form th:action="@{/invoice}" method="POST" th:object="${invoiceForm}">
+        <form th:action="@{/invoice/create}" method="POST" th:object="${invoiceForm}">
             <div>
                 <div>
                     <input type="text" placeholder="Customer name" th:field="*{customerName}"/>

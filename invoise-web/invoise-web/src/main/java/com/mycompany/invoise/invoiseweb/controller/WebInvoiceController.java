@@ -19,7 +19,7 @@ public class WebInvoiceController{
     @Autowired
     private InvoiceServiceInterface invoiceService;
 
-    /*@PostMapping
+    @PostMapping("/create")
     public String createInvoice(@Valid @ModelAttribute InvoiceForm invoiceForm, BindingResult results) {
         if(results.hasErrors()) {
             return "invoice-create-form";
@@ -29,7 +29,7 @@ public class WebInvoiceController{
         invoice.setOrderNumber(invoiceForm.getOrderNumber());
         invoiceService.createInvoice(invoice);
         return "invoice-created";
-    }*/
+    }
 
     @GetMapping("/home")
     public String displayHome(Model model) {
