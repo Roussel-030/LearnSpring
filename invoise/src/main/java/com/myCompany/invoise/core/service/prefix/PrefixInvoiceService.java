@@ -20,9 +20,10 @@ public class PrefixInvoiceService implements InvoiceServiceInterface {
     @Autowired
     private InvoiceRepositoryInterface invoiceRepository;
 
-    public void createInvoice(Invoice invoice) {
+    public Invoice createInvoice(Invoice invoice) {
         invoice.setNumber(prefix+String.valueOf(++invoiceNumber));
         invoiceRepository.create(invoice);
+        return invoice;
     }
 
     //Getter and setter

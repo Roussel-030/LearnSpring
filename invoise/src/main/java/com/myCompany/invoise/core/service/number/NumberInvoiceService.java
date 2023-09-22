@@ -11,9 +11,10 @@ public class NumberInvoiceService implements InvoiceServiceInterface {
     private static long invoiceNumber = 0L;
     private InvoiceRepositoryInterface invoiceRepository;
 
-    public void createInvoice(Invoice invoice) {
+    public Invoice createInvoice(Invoice invoice) {
         invoice.setNumber(String.valueOf(++invoiceNumber));
         invoiceRepository.create(invoice);
+        return invoice;
     }
 
     //Getter and setter

@@ -19,7 +19,7 @@ public class WebInvoiceController{
     @Autowired
     private InvoiceServiceInterface invoiceService;
 
-    @PostMapping
+    /*@PostMapping
     public String createInvoice(@Valid @ModelAttribute InvoiceForm invoiceForm, BindingResult results) {
         if(results.hasErrors()) {
             return "invoice-create-form";
@@ -29,7 +29,7 @@ public class WebInvoiceController{
         invoice.setOrderNumber(invoiceForm.getOrderNumber());
         invoiceService.createInvoice(invoice);
         return "invoice-created";
-    }
+    }*/
 
     @GetMapping("/home")
     public String displayHome(Model model) {
@@ -38,12 +38,12 @@ public class WebInvoiceController{
         return "invoice-home";
     }
 
-    @GetMapping("/{id}")
+    /*@GetMapping("/{id}")
     public String displayInvoice(@PathVariable("id") String number, Model model) {
         System.out.println("Invocation method display invoice: Success!");
         model.addAttribute("invoice",invoiceService.getInvoiceByNumber(number));
         return "invoice-details";
-    }
+    }*/
 
     @GetMapping("/create-form")
     public String displayInvoiceCreateForm(@ModelAttribute InvoiceForm invoice) {
