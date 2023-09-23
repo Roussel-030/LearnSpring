@@ -1,6 +1,5 @@
 package com.mycompany.invoise.invoiseweb.controller;
 
-import com.myCompany.invoise.core.controller.InvoiceControllerInterface;
 import com.myCompany.invoise.core.entity.Invoice;
 import com.myCompany.invoise.core.service.InvoiceServiceInterface;
 import com.mycompany.invoise.invoiseweb.form.InvoiceForm;
