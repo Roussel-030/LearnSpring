@@ -3,18 +3,19 @@ package com.myCompany.invoise.core.service.number;
 import com.myCompany.invoise.core.entity.Invoice;
 import com.myCompany.invoise.core.repository.InvoiceRepositoryInterface;
 import com.myCompany.invoise.core.service.InvoiceServiceInterface;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-//@Service
+@Service
 public class NumberInvoiceService implements InvoiceServiceInterface {
-    private static long invoiceNumber = 0L;
+
+    @Autowired
     private InvoiceRepositoryInterface invoiceRepository;
 
     public Invoice createInvoice(Invoice invoice) {
-        invoice.setNumber(String.valueOf(++invoiceNumber));
-        invoiceRepository.create(invoice);
-        return invoice;
+        return invoiceRepository.create(invoice);
     }
 
     //Getter and setter
