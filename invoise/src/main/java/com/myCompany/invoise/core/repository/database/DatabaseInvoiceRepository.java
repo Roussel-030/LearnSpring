@@ -1,5 +1,6 @@
 package com.myCompany.invoise.core.repository.database;
 
+/*
 import com.myCompany.invoise.core.entity.Invoice;
 import com.myCompany.invoise.core.repository.InvoiceRepositoryInterface;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,3 +48,5 @@ public class DatabaseInvoiceRepository implements InvoiceRepositoryInterface {
                (rs, rowNum) -> new Invoice(String.valueOf(rs.getLong("invoice_number")),rs.getString("customer_name"),rs.getString("order_number")));
     }
 }
+
+*/

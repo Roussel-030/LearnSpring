@@ -15,7 +15,7 @@ public class NumberInvoiceService implements InvoiceServiceInterface {
     private InvoiceRepositoryInterface invoiceRepository;
 
     public Invoice createInvoice(Invoice invoice) {
-        return invoiceRepository.create(invoice);
+        return invoiceRepository.save(invoice);
     }
 
     //Getter and setter
@@ -28,12 +28,12 @@ public class NumberInvoiceService implements InvoiceServiceInterface {
     }
 
     @Override
-    public List<Invoice> getInvoiceList() {
-        return invoiceRepository.list();
+    public Iterable<Invoice> getInvoiceList() {
+        return invoiceRepository.findAll();
     }
 
     @Override
     public Invoice getInvoiceByNumber(String number) {
-        return invoiceRepository.getById(number);
+        return invoiceRepository.findById(number).orElseThrow();
     }
 }

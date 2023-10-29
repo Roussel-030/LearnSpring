@@ -20,7 +20,7 @@ public class InvoiceResource {
     }
 
     @GetMapping
-    public List<Invoice> list() {
+    public Iterable<Invoice> list() {
         System.out.println("Invocation method display home: Success!");
         return invoiceService.getInvoiceList();
     }

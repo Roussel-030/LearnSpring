@@ -1,6 +1,12 @@
 package com.myCompany.invoise.core.entity;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Column;
+
 public class Invoice {
+
+    @Id
+    @Column("INVOICE_NUMBER")
     private String number;
     private String customerName;
     private String orderNumber;
