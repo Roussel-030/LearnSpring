@@ -21,7 +21,7 @@ public class InvoiceResource {
 
     @GetMapping
     public Iterable<Invoice> list() {
-        System.out.println("Invocation method display home: Success!");
+        System.out.println("Invocation method list in API: Success!");
         return invoiceService.getInvoiceList();
     }
 

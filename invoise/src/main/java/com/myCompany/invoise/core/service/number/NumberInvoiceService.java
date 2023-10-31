@@ -29,10 +29,7 @@ public class NumberInvoiceService implements InvoiceServiceInterface {
 
     @Override
     public Iterable<Invoice> getInvoiceList() {
-        Iterable<Invoice> invoices = invoiceRepository.findAll();
-        //initialize customer in entity Invoice
-        invoices.forEach(invoice -> invoice.getCustomer().getName());
-        return invoices;
+        return invoiceRepository.findAll();
     }
 
     @Override
