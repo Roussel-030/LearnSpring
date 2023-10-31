@@ -1,6 +1,6 @@
 package com.myCompany.invoise.core.entity;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+//import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
 

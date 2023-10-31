@@ -1,6 +1,7 @@
 package com.myCompany.invoise.core.controller.console;
 
 import com.myCompany.invoise.core.controller.InvoiceControllerInterface;
+import com.myCompany.invoise.core.entity.Customer;
 import com.myCompany.invoise.core.entity.Invoice;
 import com.myCompany.invoise.core.service.InvoiceServiceInterface;
 
@@ -15,7 +16,8 @@ public class ConsoleInvoiceController implements InvoiceControllerInterface {
         Scanner sc = new Scanner(System.in);
         String name = sc.nextLine();
         invoice = new Invoice();
-        invoice.setCustomerName(name);
+        Customer customer = new Customer(name);
+        invoice.setCustomer(customer);
         invoiceServiceInterface.createInvoice(invoice);
         return null;
     }

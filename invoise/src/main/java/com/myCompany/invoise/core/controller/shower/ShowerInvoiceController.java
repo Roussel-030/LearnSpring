@@ -1,6 +1,7 @@
 package com.myCompany.invoise.core.controller.shower;
 
 import com.myCompany.invoise.core.controller.InvoiceControllerInterface;
+import com.myCompany.invoise.core.entity.Customer;
 import com.myCompany.invoise.core.entity.Invoice;
 import com.myCompany.invoise.core.service.InvoiceServiceInterface;
 
@@ -12,7 +13,8 @@ public class ShowerInvoiceController implements InvoiceControllerInterface {
     public String createInvoice(Invoice invoice) {
         System.out.println("Using a scanner");
         invoice = new Invoice();
-        invoice.setCustomerName("John English");
+        Customer customer = new Customer("John English");
+        invoice.setCustomer(customer);
         invoiceServiceInterface.createInvoice(invoice);
         return null;
     }
