@@ -1,12 +1,12 @@
 package com.mycompany.invoise.invoiseweb.controller;
 
+import com.myCompany.invoise.core.entity.Address;
 import com.myCompany.invoise.core.entity.Customer;
 import com.myCompany.invoise.core.entity.Invoice;
 import com.myCompany.invoise.core.service.InvoiceServiceInterface;
 import com.mycompany.invoise.invoiseweb.form.InvoiceForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,11 +24,21 @@ public class WebInvoiceController{
         if(results.hasErrors()) {
             return "invoice-create-form";
         }
-        Invoice invoice = new Invoice();
+        Address address = new Address();
+        address.setStreet(invoiceForm.getStreet());
+        address.setStreetNumber(invoiceForm.getStreetNumber());
+        address.setCity(invoiceForm.getCity());
+        address.setZipCode(invoiceForm.getZipCode());
+        address.setCountry(invoiceForm.getCountry());
+
         Customer customer = new Customer();
         customer.setName(invoiceForm.getCustomerName());
+        customer.setAddress(address);
+
+        Invoice invoice = new Invoice();
         invoice.setCustomer(customer);
         invoice.setOrderNumber(invoiceForm.getOrderNumber());
+
         invoiceService.createInvoice(invoice);
         return "invoice-created";
     }
