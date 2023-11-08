@@ -1,6 +1,6 @@
 package com.myCompany.invoise.core.controller;
 
-import com.myCompany.invoise.core.entity.Invoice;
+import com.myCompany.invoise.core.entity.invoice.Invoice;
 import com.myCompany.invoise.core.service.InvoiceServiceInterface;
 
 public interface InvoiceControllerInterface {

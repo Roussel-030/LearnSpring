@@ -1,6 +1,6 @@
 package com.myCompany.invoise.core.repository;
 
-import com.myCompany.invoise.core.entity.Invoice;
+import com.myCompany.invoise.core.entity.invoice.Invoice;
 import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.repository.CrudRepository;
 

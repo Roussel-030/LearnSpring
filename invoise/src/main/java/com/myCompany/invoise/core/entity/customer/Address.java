@@ -1,4 +1,4 @@
-package com.myCompany.invoise.core.entity;
+package com.myCompany.invoise.core.entity.customer;
 
 //import com.fasterxml.jackson.annotation.JsonBackReference;
 

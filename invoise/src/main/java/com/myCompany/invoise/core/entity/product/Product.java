@@ -1,5 +1,7 @@
-package com.myCompany.invoise.core.entity;
+package com.myCompany.invoise.core.entity.product;
 
+
+import com.myCompany.invoise.core.entity.product.Category;
 
 import javax.persistence.*;
 import java.util.ArrayList;

@@ -1,8 +1,8 @@
 package com.myCompany.invoise.core.controller.console;
 
 import com.myCompany.invoise.core.controller.InvoiceControllerInterface;
-import com.myCompany.invoise.core.entity.Customer;
-import com.myCompany.invoise.core.entity.Invoice;
+import com.myCompany.invoise.core.entity.customer.Customer;
+import com.myCompany.invoise.core.entity.invoice.Invoice;
 import com.myCompany.invoise.core.service.InvoiceServiceInterface;
 
 import java.util.Scanner;

@@ -1,7 +1,7 @@
 package com.myCompany.invoise.core.repository.database;
 
 /*
-import com.myCompany.invoise.core.entity.Invoice;
+import com.myCompany.invoise.core.entity.invoice.Invoice;
 import com.myCompany.invoise.core.repository.InvoiceRepositoryInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
